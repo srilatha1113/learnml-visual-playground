@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DatasetsRouteImport } from './routes/datasets'
+import { Route as PlaygroundRouteImport } from './routes/playground'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as VisualizerRouteImport } from './routes/visualizer'
+import { Route as ModulesIndexRouteImport } from './routes/modules.index'
+import { Route as ModulesSlugRouteImport } from './routes/modules.$slug'
+import { Route as QuizIndexRouteImport } from './routes/quiz.index'
+import { Route as QuizTopicRouteImport } from './routes/quiz.$topic'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatasetsRoute = DatasetsRouteImport.update({
+  id: '/datasets',
+  path: '/datasets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlaygroundRoute = PlaygroundRouteImport.update({
+  id: '/playground',
+  path: '/playground',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisualizerRoute = VisualizerRouteImport.update({
+  id: '/visualizer',
+  path: '/visualizer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModulesIndexRoute = ModulesIndexRouteImport.update({
+  id: '/modules/',
+  path: '/modules/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModulesSlugRoute = ModulesSlugRouteImport.update({
+  id: '/modules/$slug',
+  path: '/modules/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizIndexRoute = QuizIndexRouteImport.update({
+  id: '/quiz/',
+  path: '/quiz/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizTopicRoute = QuizTopicRouteImport.update({
+  id: '/quiz/$topic',
+  path: '/quiz/$topic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/datasets': typeof DatasetsRoute
+  '/playground': typeof PlaygroundRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/visualizer': typeof VisualizerRoute
+  '/modules/$slug': typeof ModulesSlugRoute
+  '/quiz/$topic': typeof QuizTopicRoute
+  '/modules/': typeof ModulesIndexRoute
+  '/quiz/': typeof QuizIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/datasets': typeof DatasetsRoute
+  '/playground': typeof PlaygroundRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/visualizer': typeof VisualizerRoute
+  '/modules/$slug': typeof ModulesSlugRoute
+  '/quiz/$topic': typeof QuizTopicRoute
+  '/modules': typeof ModulesIndexRoute
+  '/quiz': typeof QuizIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/datasets': typeof DatasetsRoute
+  '/playground': typeof PlaygroundRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/visualizer': typeof VisualizerRoute
+  '/modules/$slug': typeof ModulesSlugRoute
+  '/quiz/$topic': typeof QuizTopicRoute
+  '/modules/': typeof ModulesIndexRoute
+  '/quiz/': typeof QuizIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/datasets'
+    | '/playground'
+    | '/reset-password'
+    | '/visualizer'
+    | '/modules/$slug'
+    | '/quiz/$topic'
+    | '/modules/'
+    | '/quiz/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/datasets'
+    | '/playground'
+    | '/reset-password'
+    | '/visualizer'
+    | '/modules/$slug'
+    | '/quiz/$topic'
+    | '/modules'
+    | '/quiz'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/datasets'
+    | '/playground'
+    | '/reset-password'
+    | '/visualizer'
+    | '/modules/$slug'
+    | '/quiz/$topic'
+    | '/modules/'
+    | '/quiz/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  DashboardRoute: typeof DashboardRoute
+  DatasetsRoute: typeof DatasetsRoute
+  PlaygroundRoute: typeof PlaygroundRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  VisualizerRoute: typeof VisualizerRoute
+  ModulesSlugRoute: typeof ModulesSlugRoute
+  QuizTopicRoute: typeof QuizTopicRoute
+  ModulesIndexRoute: typeof ModulesIndexRoute
+  QuizIndexRoute: typeof QuizIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datasets': {
+      id: '/datasets'
+      path: '/datasets'
+      fullPath: '/datasets'
+      preLoaderRoute: typeof DatasetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/playground': {
+      id: '/playground'
+      path: '/playground'
+      fullPath: '/playground'
+      preLoaderRoute: typeof PlaygroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/visualizer': {
+      id: '/visualizer'
+      path: '/visualizer'
+      fullPath: '/visualizer'
+      preLoaderRoute: typeof VisualizerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/modules/': {
+      id: '/modules/'
+      path: '/modules'
+      fullPath: '/modules/'
+      preLoaderRoute: typeof ModulesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/modules/$slug': {
+      id: '/modules/$slug'
+      path: '/modules/$slug'
+      fullPath: '/modules/$slug'
+      preLoaderRoute: typeof ModulesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz/': {
+      id: '/quiz/'
+      path: '/quiz'
+      fullPath: '/quiz/'
+      preLoaderRoute: typeof QuizIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz/$topic': {
+      id: '/quiz/$topic'
+      path: '/quiz/$topic'
+      fullPath: '/quiz/$topic'
+      preLoaderRoute: typeof QuizTopicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  DashboardRoute: DashboardRoute,
+  DatasetsRoute: DatasetsRoute,
+  PlaygroundRoute: PlaygroundRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  VisualizerRoute: VisualizerRoute,
+  ModulesSlugRoute: ModulesSlugRoute,
+  QuizTopicRoute: QuizTopicRoute,
+  ModulesIndexRoute: ModulesIndexRoute,
+  QuizIndexRoute: QuizIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

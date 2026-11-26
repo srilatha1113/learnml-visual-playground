@@ -28,3 +28,12 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Learner progress goes through `src/lib/progress.ts` only: it keeps a copy on the device and mirrors it to the signed-in account. Why: one place decides how guest and account progress merge.
+- The only auth listener is `AuthProvider` in `src/hooks/use-auth.tsx`, mounted in the root route. Why: a second listener double-syncs progress.
+- All pages are public; signing in only adds saving across devices. Why: visitors must be able to learn before creating an account.
+- ML maths lives in `src/lib/ml/` as pure functions using the seeded random helper, never `Math.random` during render. Why: server and browser must draw identical data.
+- Lessons, quizzes and datasets are static files in `src/data/`, keyed by module slug. Why: quizzes and progress look modules up by slug.
+- The site name comes from `src/lib/site.ts`. Why: one place to rename.
